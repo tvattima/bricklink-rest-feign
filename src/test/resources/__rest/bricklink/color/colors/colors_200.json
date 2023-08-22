@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "code": "200",
+    "message": "OK",
+    "description": "OK"
+  },
+  "data":
+    [
+      {
+        "color_id": 1,
+        "color_name": "Color 1",
+        "color_code": "6b5a5a",
+        "color_type": "Solid"
+      },
+      {
+        "color_id": 2,
+        "color_name": "Color 2",
+        "color_code": "6b5a5a",
+        "color_type": "Solid"
+      }
+    ]
+}
