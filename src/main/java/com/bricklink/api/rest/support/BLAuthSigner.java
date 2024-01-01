@@ -118,7 +118,7 @@ public class BLAuthSigner {
 		String formUrlEncodedParams = OAuthEncoder.encode(params);
 		String sanitizedURL = OAuthEncoder.encode( url.replaceAll( "\\?.*", "" ).replace( "\\:\\d{4}", "" ) );
 
-		return String.format( "%s&%s&%s", verb, sanitizedURL, formUrlEncodedParams );
+		return  "%s&%s&%s".formatted(verb, sanitizedURL, formUrlEncodedParams);
 	}
 
 	private String doSign( String toSign, String keyString ) throws Exception {

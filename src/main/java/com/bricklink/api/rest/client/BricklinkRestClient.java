@@ -27,30 +27,38 @@ public interface BricklinkRestClient {
     @RequestLine("GET /items/{type}/{no}/price?color_id={colorId}&guide_type={guideType}&new_or_used={new_or_used}&country_code={country_code}&region={region}&currency_code={currency_code}&vat={vat}")
     BricklinkResource<PriceGuide> getPriceGuide(@Param("type") String type, @Param("no") String no, @QueryMap Map<String, Object> params);
 
-    @RequestLine("GET /items/{type}/{no}/subsets?"+
-                    "color_id={colorId}&"+
-                    "box={box}&"+
-                    "instruction={instruction}&"+
-                    "break_minifigs={break_minifigs}&"+
-                    "break_subsets={break_subsets}")
+    @RequestLine("""
+                    GET /items/{type}/{no}/subsets?\
+                    color_id={colorId}&\
+                    box={box}&\
+                    instruction={instruction}&\
+                    break_minifigs={break_minifigs}&\
+                    break_subsets={break_subsets}\
+                    """)
     BricklinkResource<List<SubsetEntry>> getSubsets(@Param("type") String type, @Param("no") String no, @QueryMap Map<String, Object> params);
 
-    @RequestLine("GET /inventories?" +
-                    "item_type={itemType}&"+
-                    "status={status}&"+
-                    "category_id={categoryId}&"+
-                    "color_id={colorId}")
+    @RequestLine("""
+                    GET /inventories?\
+                    item_type={itemType}&\
+                    status={status}&\
+                    category_id={categoryId}&\
+                    color_id={colorId}\
+                    """)
     BricklinkResource<List<Inventory>> getInventories(@QueryMap Map<String, Object> params);
 
-    @RequestLine("GET /orders?" +
-            "direction={direction}&"+
-            "status={status}&"+
-            "fileid={fileId}")
+    @RequestLine("""
+            GET /orders?\
+            direction={direction}&\
+            status={status}&\
+            fileid={fileId}\
+            """)
     BricklinkResource<List<Order>> getOrders(@QueryMap Map<String, Object> params, @Param("status") Iterable status);
 
-    @RequestLine("GET /orders?" +
-            "direction={direction}&"+
-            "fileid={fileId}")
+    @RequestLine("""
+            GET /orders?\
+            direction={direction}&\
+            fileid={fileId}\
+            """)
     BricklinkResource<List<Order>> getOrders(@QueryMap Map<String, Object> params);
 
     @RequestLine("GET /orders/{order_id}")

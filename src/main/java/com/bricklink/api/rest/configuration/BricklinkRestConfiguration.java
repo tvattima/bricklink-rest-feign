@@ -93,8 +93,7 @@ public class BricklinkRestConfiguration {
         @Override
         public Object decode(Response response, Type type) throws IOException, DecodeException, FeignException {
             Object object = delegate.decode(response, type);
-            if (object instanceof BricklinkResource) {
-                BricklinkResource bricklinkResource = (BricklinkResource)object;
+            if (object instanceof BricklinkResource bricklinkResource) {
                 BricklinkMeta meta = bricklinkResource.getMeta();
                 if (meta.getCode() >= 400 && meta.getCode() <= 499) {
                     throw new BricklinkClientException(meta.getCode(), meta.getMessage(), meta.getDescription());
